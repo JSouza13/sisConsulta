@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SisConsultaMVC.Models.Paciente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Pacientes</h2>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(model => model.NomePaciente)
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(model => model.Cpf)
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayNameFor(model => model.NumTelefone)
+            </th>            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomePaciente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumTelefone)
+            </td>            
+            <td class="col-md-3">
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.PacienteID">Editar</a>
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.PacienteID">Detalhes</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.PacienteID">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<hr />
+<div class="col-md-12" style="margin-bottom: 20px;">
+    <a asp-action="Create" class="btn btn-success">Novo paciente</a>
+    <input type="button" value="Voltar" class="btn" onclick="history.go(-1)" />
+</div>

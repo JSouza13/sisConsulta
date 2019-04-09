@@ -1,0 +1,38 @@
+﻿@model SisConsultaMVC.Models.Consulta
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Cancelar consulta</h2>
+<p class="text-danger">@ViewData["ErrorMessage"]</p>
+<h3>Tem certeza de que deseja cancelar?</h3>
+
+<div>
+    <dl class="col-md-12">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataConsulta)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DataConsulta)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Medico)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Medico.MedicoID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Paciente)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Paciente.PacienteID)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ConsultaID" />
+        <input type="submit" value="Excluir" class="btn btn-success" />
+        <input type="button" value="Voltar" class="btn" onclick="history.go(-1)" />
+    </form>
+</div>

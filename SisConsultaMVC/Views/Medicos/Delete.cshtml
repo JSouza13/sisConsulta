@@ -1,0 +1,39 @@
+﻿@model SisConsultaMVC.Models.Medico
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Excluir médico</h2>
+<p class="text-danger">@ViewData["ErrorMessage"]</p>
+<h3>Tem certeza de que deseja excluir?</h3>
+
+<div>
+    <hr />
+    <dl class="col-md-12">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Especialidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Especialidade)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="MedicoID" />
+        <input type="submit" value="Excluir" class="btn btn-success" />
+        <input type="button" value="Voltar" class="btn" onclick="history.go(-1)" />
+    </form>
+</div>

@@ -1,0 +1,35 @@
+﻿@model SisConsultaMVC.Models.Medico
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detalhes do médico</h2>
+
+<div class="row">
+    <hr />
+    <dl class="col-md-12">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Especialidade)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Especialidade)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.MedicoID">Editar</a>
+    <input type="button" value="Voltar" class="btn" onclick="history.go(-1)" />
+</div>

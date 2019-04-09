@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SisConsultaMVC.Models.Medico>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Médicos</h2>
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="col-md-4">
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th class="col-md-4">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td class="col-md-3">
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.MedicoID">Editar</a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.MedicoID">Detalhes</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.MedicoID">Deletar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<div class="col-md-12">
+    <a asp-action="Create" class="btn btn-success">Novo médico</a>
+    <input type="button" value="Voltar" class="btn" onclick="history.go(-1)" />
+</div>
