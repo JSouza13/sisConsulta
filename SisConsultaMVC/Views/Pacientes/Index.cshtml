@@ -25,9 +25,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="body">
+            <div class="body table-responsive">
                 <div class="row clearfix">
-                    <table class="table">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
 
@@ -47,29 +47,29 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                    @Html.DisplayFor(modelItem => item.NomePaciente)
-                                </td>
-                                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                    @Html.DisplayFor(modelItem => item.Cpf)
-                                </td>
-                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
-                                    @Html.DisplayFor(modelItem => item.NumTelefone)
-                                </td>
+                                <tr>
+                                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                        @Html.DisplayFor(modelItem => item.NomePaciente)
+                                    </td>
+                                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                        @Html.DisplayFor(modelItem => item.Cpf)
+                                    </td>
+                                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                                        @Html.DisplayFor(modelItem => item.NumTelefone)
+                                    </td>
 
-                                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                    <a type="button" class="btn btn-warning btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="top" title="Editar" asp-action="Edit" asp-route-id="@item.PacienteID">
-                                        <i class="material-icons">edit</i>
-                                    </a>
-                                    <a type="button" class="btn btn-info btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="top" title="Detalhes" asp-action="Details" asp-route-id="@item.PacienteID">
-                                        <i class="material-icons">style</i>
-                                    </a>
-                                    <a type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="top" title="Excluir" asp-action="Delete" asp-route-id="@item.PacienteID">
-                                        <i class="material-icons">delete</i>
-                                    </a>
-                                </td>
-                            </tr>
+                                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                        <a type="button" class="btn btn-warning btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="top" title="Editar" asp-action="Edit" asp-route-id="@item.PacienteID">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                        <a type="button" class="btn btn-info btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="top" title="Detalhes" asp-action="Details" asp-route-id="@item.PacienteID">
+                                            <i class="material-icons">style</i>
+                                        </a>
+                                        <a type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="top" title="Excluir" asp-action="Delete" asp-route-id="@item.PacienteID">
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                     </table>

@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SisConsultaMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using SisConsultaMVC.Validation;
+using SisConsultaMVC.Services;
 
 namespace SisConsultaMVC
 {
@@ -41,6 +42,8 @@ namespace SisConsultaMVC
                     options.UseSqlServer(Configuration.GetConnectionString("SisFonoContext")));
 
             services.AddScoped<ConsultaValidation>();
+            services.AddScoped<ConsultaService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

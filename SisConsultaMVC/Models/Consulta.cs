@@ -24,5 +24,16 @@ namespace SisConsultaMVC.Models
 
         [Display(Name = "Paciente")]
         public Paciente Paciente { get; set; }
+
+        public Consulta()
+        {
+        }
+
+        public Consulta(int medicoID, int pacienteID, DateTime dataConsulta)
+        {
+            MedicoID = medicoID;
+            PacienteID = pacienteID;
+            DataConsulta = dataConsulta;
+        }
     }
 }

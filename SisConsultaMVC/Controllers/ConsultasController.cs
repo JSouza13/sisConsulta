@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using SisConsultaMVC.Data;
 using SisConsultaMVC.Models;
 using SisConsultaMVC.Validation;
+using SisConsultaMVC.Services;
+
 
 namespace SisConsultaMVC.Controllers
 {
@@ -15,13 +17,13 @@ namespace SisConsultaMVC.Controllers
     {
         private readonly SisConsultaContext _context;
         private readonly ConsultaValidation _validation;
+        private readonly ConsultaService _consultaService;
 
-
-
-        public ConsultasController(SisConsultaContext context, ConsultaValidation validation)
+        public ConsultasController(SisConsultaContext context, ConsultaValidation validation, ConsultaService consultaService)
         {
             _context = context;
             _validation = validation;
+            _consultaService = consultaService;
         }
 
 
@@ -176,6 +178,40 @@ namespace SisConsultaMVC.Controllers
         private bool ConsultaExists(int id)
         {
             return _context.Consultas.Any(e => e.ConsultaID == id);
+        }
+
+
+        public async Task<IActionResult> SimpleSearch(DateTime? minDate, DateTime? maxDate)
+        {
+            if (!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+            if (!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+            var result = await _consultaService.FindByDateAsync(minDate, maxDate);
+            return View(result);
+        }
+
+
+        public async Task<IActionResult> GroupingSearch(DateTime? minDate, DateTime? maxDate)
+        {
+            if (!minDate.HasValue)
+            {
+                minDate = new DateTime(DateTime.Now.Year, 1, 1);
+            }
+            if (!maxDate.HasValue)
+            {
+                maxDate = DateTime.Now;
+            }
+            ViewData["minDate"] = minDate.Value.ToString("yyyy-MM-dd");
+            ViewData["maxDate"] = maxDate.Value.ToString("yyyy-MM-dd");
+            var result = _consultaService.FindByDateGrouping(minDate, maxDate);
+            return View(result);
         }
     }
 }
