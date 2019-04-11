@@ -27,13 +27,9 @@
                 <span asp-validation-for="Especialidade" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <a asp-action="Create" class="btn btn-success">Salvar</a>
+                <input type="submit" value="Save" class="btn btn-default" />
                 <input type="button" value="Voltar" class="btn" onclick="history.go(-1)" />
             </div>
         </form>
     </div>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

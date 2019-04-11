@@ -5,32 +5,34 @@
 }
 
 <h2>Detalhes da consulta</h2>
+<hr />
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="card">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DataConsulta)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataConsulta)
+            </dd>            
+            <dt>
+                @Html.DisplayNameFor(model => model.Medico)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Medico.Nome)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Paciente)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Paciente.NomePaciente)
+            </dd>
+        </dl>
+    </div>
+</div>
 
 <div>
-    <h4>Consulta</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DataConsulta)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DataConsulta)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Medico)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Medico.MedicoID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Paciente)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Paciente.PacienteID)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ConsultaID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.ConsultaID">Editar</a>
+    <input type="button" value="Voltar" class="btn" onclick="history.go(-1)" />
 </div>

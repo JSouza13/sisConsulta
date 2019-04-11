@@ -1,68 +1,149 @@
 ﻿@model SisConsultaMVC.Models.Paciente
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Exluir Paciente";
 }
 
-<h2>Excluir paciente</h2>
-<p class="text-danger">@ViewData["ErrorMessage"]</p>
-<h3>Tem certeza de que deseja excluir?</h3>
-<div>
-    <hr />
-    <dl class="col-md-12">
-        <dt>
-            @Html.DisplayNameFor(model => model.NomePaciente)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NomePaciente)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Cpf)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cpf)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.NumTelefone)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NumTelefone)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Rua)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Rua)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Numero)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Numero)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Bairro)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Bairro)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Cidade)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Cidade)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="PacienteID" />
-        <input type="submit" value="Excluir" class="btn btn-success" /> 
-        <input type="button" value="Voltar" class="btn" onclick="history.go(-1)" />
-    </form>
+<!-- #END# Inline Layout -->
+<!-- Inline Layout | With Floating Label -->
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Excluir paciente
+                    @*<small>Cadastro de novo paciente</small>*@
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                <div class="row clearfix">
+                    
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.NomePaciente)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.NomePaciente)
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Cpf)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Cpf)
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.NumTelefone)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.NumTelefone)
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Email)
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Rua)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Rua)
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Numero)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Numero)
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Bairro)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Bairro)
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <dt>
+                                        @Html.DisplayNameFor(model => model.Cidade)
+                                    </dt>
+                                    <dd>
+                                        @Html.DisplayFor(model => model.Cidade)
+                                    </dd>
+                                </div>
+                            </div>
+                        </div>         
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="PacienteID" />
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <button type="submit" class="btn btn-danger btn-lg m-l-15 waves-effect">Excluir</button>
+                            <button type="button" class="btn btn-lg m-l-15 waves-effect" onclick="history.go(-1)">Voltar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

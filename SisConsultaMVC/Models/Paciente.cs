@@ -29,7 +29,7 @@ namespace SisConsultaMVC.Models
         public string Email { get; set; }
 
         public string Rua { get; set; }
-        public int Numero { get; set; }
+        public int? Numero { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
 

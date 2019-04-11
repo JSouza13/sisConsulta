@@ -7,17 +7,24 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SisConsultaMVC.Data;
 using SisConsultaMVC.Models;
+using SisConsultaMVC.Validation;
 
 namespace SisConsultaMVC.Controllers
 {
     public class ConsultasController : Controller
     {
         private readonly SisConsultaContext _context;
+        private readonly ConsultaValidation _validation;
 
-        public ConsultasController(SisConsultaContext context)
+
+
+        public ConsultasController(SisConsultaContext context, ConsultaValidation validation)
         {
             _context = context;
+            _validation = validation;
         }
+
+
 
         // GET: Consultas
         public async Task<IActionResult> Index()
@@ -59,10 +66,18 @@ namespace SisConsultaMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ConsultaID,MedicoID,PacienteID,DataConsulta")] Consulta consulta)
+        public async Task<IActionResult> Create([Bind("ConsultaID,MedicoID,PacienteID,DataConsulta")] Consulta consulta) 
         {
             if (ModelState.IsValid)
             {
+                if (_validation.ValidarConsultaMedico(consulta.MedicoID, consulta.DataConsulta)){
+
+                    ModelState.AddModelError("ProcessSubmitUpload", "Já existe consulta agendada para este médico");
+                    ViewData["MedicoID"] = new SelectList(_context.Medicos, "MedicoID", "Nome");
+                    ViewData["PacienteID"] = new SelectList(_context.Pacientes, "PacienteID", "NomePaciente");
+                    return View();
+                    //throw new Exception("Já consulta agendada para este médico");
+                }
                 _context.Add(consulta);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -85,8 +100,8 @@ namespace SisConsultaMVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["MedicoID"] = new SelectList(_context.Medicos, "MedicoID", "MedicoID", consulta.MedicoID);
-            ViewData["PacienteID"] = new SelectList(_context.Pacientes, "PacienteID", "PacienteID", consulta.PacienteID);
+            ViewData["MedicoID"] = new SelectList(_context.Medicos, "MedicoID", "Nome", consulta.MedicoID);
+            ViewData["PacienteID"] = new SelectList(_context.Pacientes, "PacienteID", "NomePaciente", consulta.PacienteID);
             return View(consulta);
         }
 
@@ -122,8 +137,8 @@ namespace SisConsultaMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MedicoID"] = new SelectList(_context.Medicos, "MedicoID", "MedicoID", consulta.MedicoID);
-            ViewData["PacienteID"] = new SelectList(_context.Pacientes, "PacienteID", "PacienteID", consulta.PacienteID);
+            ViewData["MedicoID"] = new SelectList(_context.Medicos, "MedicoID", "Nome", consulta.MedicoID);
+            ViewData["PacienteID"] = new SelectList(_context.Pacientes, "PacienteID", "NomePaciente", consulta.PacienteID);
             return View(consulta);
         }
 

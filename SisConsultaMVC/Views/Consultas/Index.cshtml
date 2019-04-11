@@ -6,43 +6,48 @@
 
 <h2>Consultas agendadas</h2>
 <hr />
-<table class="table">
-    <thead>
-        <tr>
-            <th class="col-md-3">
-                @Html.DisplayNameFor(model => model.DataConsulta)
-            </th>
-            <th class="col-md-3">
-                @Html.DisplayNameFor(model => model.Medico)
-            </th>
-            <th class="col-md-3">
-                @Html.DisplayNameFor(model => model.Paciente)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataConsulta)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Medico.Nome)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Paciente.NomePaciente)
-                </td>
-                <td class="col-md-3">
-                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.ConsultaID">Editar</a>
-                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.ConsultaID">Detalhes</a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ConsultaID">Deletar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="col-md-3">
+                        @Html.DisplayNameFor(model => model.DataConsulta)
+                    </th>                    
+                    <th class="col-md-3">
+                        @Html.DisplayNameFor(model => model.Paciente)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataConsulta)
+                        </td>                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Paciente.NomePaciente)
+                        </td>
+                        <td class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <a type="button" class="btn btn-warning btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="top" title="Editar" asp-action="Edit" asp-route-id="@item.ConsultaID">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a type="button" class="btn btn-info btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="top" title="Detalhes" asp-action="Details" asp-route-id="@item.ConsultaID">
+                                <i class="material-icons">style</i>
+                            </a>
+                            <a type="button" class="btn btn-danger btn-circle waves-effect waves-circle waves-float" data-toggle="tooltip" data-placement="top" title="Excluir" asp-action="Delete" asp-route-id="@item.ConsultaID">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <hr />
 <div class="col-md-12">
     <a asp-action="Create" class="btn btn-success">Agendar consulta</a>
