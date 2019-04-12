@@ -27,6 +27,8 @@ namespace SisConsultaMVC.Migrations
 
                     b.Property<DateTime>("DataConsulta");
 
+                    b.Property<DateTime>("DataFinalConsulta");
+
                     b.Property<int>("MedicoID");
 
                     b.Property<int>("PacienteID");

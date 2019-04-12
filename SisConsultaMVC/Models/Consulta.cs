@@ -16,24 +16,16 @@ namespace SisConsultaMVC.Models
         [Display(Name = "Paciente")]
         public int PacienteID { get; set; }
 
-        [Display(Name = "Data da consulta")]
+        [Display(Name = "Data inicial da consulta")]
         public DateTime DataConsulta { get; set; }
+
+        [Display(Name = "Data final da consulta")]
+        public DateTime DataFinalConsulta { get; set; }
 
         [Display(Name = "Médico responsável")]
         public Medico Medico { get; set; }
 
         [Display(Name = "Paciente")]
         public Paciente Paciente { get; set; }
-
-        public Consulta()
-        {
-        }
-
-        public Consulta(int medicoID, int pacienteID, DateTime dataConsulta)
-        {
-            MedicoID = medicoID;
-            PacienteID = pacienteID;
-            DataConsulta = dataConsulta;
-        }
     }
 }

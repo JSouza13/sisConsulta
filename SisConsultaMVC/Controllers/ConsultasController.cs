@@ -68,7 +68,7 @@ namespace SisConsultaMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ConsultaID,MedicoID,PacienteID,DataConsulta")] Consulta consulta) 
+        public async Task<IActionResult> Create([Bind("ConsultaID,MedicoID,PacienteID,DataConsulta,DataFinalConsulta")] Consulta consulta) 
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,6 @@ namespace SisConsultaMVC.Controllers
                     ViewData["MedicoID"] = new SelectList(_context.Medicos, "MedicoID", "Nome");
                     ViewData["PacienteID"] = new SelectList(_context.Pacientes, "PacienteID", "NomePaciente");
                     return View();
-                    //throw new Exception("Já consulta agendada para este médico");
                 }
                 _context.Add(consulta);
                 await _context.SaveChangesAsync();
@@ -112,7 +111,7 @@ namespace SisConsultaMVC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ConsultaID,MedicoID,PacienteID,DataConsulta")] Consulta consulta)
+        public async Task<IActionResult> Edit(int id, [Bind("ConsultaID,MedicoID,PacienteID,DataConsulta,DataFinalConsulta")] Consulta consulta)
         {
             if (id != consulta.ConsultaID)
             {

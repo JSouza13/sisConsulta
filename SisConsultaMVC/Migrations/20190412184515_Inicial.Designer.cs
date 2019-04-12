@@ -10,8 +10,8 @@ using SisConsultaMVC.Data;
 namespace SisConsultaMVC.Migrations
 {
     [DbContext(typeof(SisConsultaContext))]
-    [Migration("20190411131928_Ajuste no ConsultasController para busca por data simples")]
-    partial class AjustenoConsultasControllerparabuscapordatasimples
+    [Migration("20190412184515_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,6 +28,8 @@ namespace SisConsultaMVC.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DataConsulta");
+
+                    b.Property<DateTime>("DataFinalConsulta");
 
                     b.Property<int>("MedicoID");
 

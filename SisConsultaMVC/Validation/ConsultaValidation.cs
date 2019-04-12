@@ -20,9 +20,9 @@ namespace SisConsultaMVC.Validation
         }
 
         public bool ValidarConsultaMedico(int medicoID, DateTime dataConsulta)
-        {
+        {            
             return _context.Consultas
-                  .Any(m => m.MedicoID == medicoID && m.DataConsulta == dataConsulta);
+                   .Any(m => m.MedicoID == medicoID && (m.DataConsulta <= dataConsulta && m.DataFinalConsulta >= dataConsulta));
         }
     }
 }

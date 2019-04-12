@@ -34,7 +34,7 @@ namespace SisConsultaMVC.Migrations
                     NumTelefone = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     Rua = table.Column<string>(nullable: true),
-                    Numero = table.Column<int>(nullable: false),
+                    Numero = table.Column<int>(nullable: true),
                     Bairro = table.Column<string>(nullable: true),
                     Cidade = table.Column<string>(nullable: true)
                 },
@@ -51,7 +51,8 @@ namespace SisConsultaMVC.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     MedicoID = table.Column<int>(nullable: false),
                     PacienteID = table.Column<int>(nullable: false),
-                    DataConsulta = table.Column<DateTime>(nullable: false)
+                    DataConsulta = table.Column<DateTime>(nullable: false),
+                    DataFinalConsulta = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

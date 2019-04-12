@@ -18,10 +18,10 @@ namespace SisConsultaMVC.Data
 
             var pacientes = new Paciente[]
             {
-                new Paciente{NomePaciente = "Pedro",
-                            Cpf = "215.489.436-49",
-                            NumTelefone = "(48)98847-4910",
-                            Email = "pedro@gmail.com",
+                new Paciente{NomePaciente = "Joao Vitor de Souza",
+                            Cpf = "089.833.719-00",
+                            NumTelefone = "(48)98855-5800",
+                            Email = "joao_souza@hotmail.com",
                             Rua = "Rua uruguai",
                             Numero = 666,
                             Bairro = "Nações",
@@ -46,9 +46,9 @@ namespace SisConsultaMVC.Data
 
             var medicos = new Medico[]
             {
-                new Medico{Nome = "Pedro",
-                           Email = "pedro@gmail.com",
-                           Especialidade = "Cardiologista"
+                new Medico{Nome = "Ana Carolina Steiner Stüpp",
+                           Email = "ana@gmail.com",
+                           Especialidade = "Fonoaudiologia"
                  }
             };
             foreach (Medico c in medicos)
@@ -59,7 +59,7 @@ namespace SisConsultaMVC.Data
 
             var consultas = new Consulta[]
             {
-                new Consulta{MedicoID = 1, PacienteID = 1, DataConsulta = DateTime.Parse("2005-09-01 15:00:00")}            
+                new Consulta{MedicoID = 1, PacienteID = 1, DataConsulta = DateTime.Parse("2019-04-13 15:00:00"), DataFinalConsulta = DateTime.Parse("2019-04-13 16:00:00")}            
             };
             foreach (Consulta e in consultas)
             {
