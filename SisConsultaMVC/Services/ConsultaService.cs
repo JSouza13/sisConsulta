@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SisConsultaMVC.Data;
-using SisConsultaMVC.ViewModel;
 
 namespace SisConsultaMVC.Services
 {
@@ -35,22 +34,7 @@ namespace SisConsultaMVC.Services
                 .Include(c => c.Paciente)
                 .OrderByDescending(x => x.DataConsulta)
                 .ToListAsync();
-        }
-
-
-        public List<ConsultaViewModel> FindByDateGrouping(DateTime? minDate, DateTime? maxDate)
-        {
-            IQueryable<ConsultaViewModel> x = _context.Consultas.Where(c => c.DataConsulta >= minDate && c.DataConsulta <= maxDate)
-                .GroupBy(m => m.Medico.Especialidade)
-                .Select(g => new ConsultaViewModel
-                {
-                    Chave = g.Key,
-                    Itens = g.ToList(),
-                    Especialidade = g.First().Medico.Especialidade
-                });
-
-            return x.ToList();
-        }
+        }       
     }
 }
 

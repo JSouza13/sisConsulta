@@ -10,7 +10,7 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    Detalhes do paciente
+                    Informações detalhadas do paciente
                     @*<small>Cadastro de novo paciente</small>*@
                 </h2>
                 <ul class="header-dropdown m-r--5">
@@ -137,8 +137,8 @@
                     <form asp-action="Edit">
                         <input type="hidden" asp-for="PacienteID" />
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <a class="btn btn-warning btn-lg m-l-15 waves-effect" asp-action="Edit" asp-route-id="@Model.PacienteID">Editar</a>
-                            <button type="button" class="btn btn-lg m-l-15 waves-effect" onclick="history.go(-1)">Voltar</button>
+                            <a class="btn bg-deep-purple btn-lg m-l-15 waves-effect" asp-action="Edit" asp-route-id="@Model.PacienteID">Editar</a>
+                            <button type="button" class="btn bg-blue-grey btn-lg m-l-15 waves-effect" onclick="history.go(-1)">Voltar</button>
                         </div>
                     </form>
                 </div>
