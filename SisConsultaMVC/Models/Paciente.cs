@@ -23,6 +23,7 @@ namespace SisConsultaMVC.Models
         [Display(Name = "Telefone")]
         public string NumTelefone { get; set; }
 
+        [Required(ErrorMessage = "{0} obrigatório")] // Campo obrigatório.
         [EmailAddress(ErrorMessage = "Insira um e-mail valido")]
         [Display(Name = "E-mail")]
         [DataType(DataType.EmailAddress)]

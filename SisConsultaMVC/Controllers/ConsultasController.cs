@@ -72,7 +72,7 @@ namespace SisConsultaMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(consulta.DataFinalConsulta < consulta.DataConsulta)
+                if(consulta.DataFinalConsulta <= consulta.DataConsulta)
                 {
                     ModelState.AddModelError("ProcessSubmitUpload", "A data final da consulta deve ser maior que a inicial.");
                     ViewData["MedicoID"] = new SelectList(_context.Medicos, "MedicoID", "Nome");

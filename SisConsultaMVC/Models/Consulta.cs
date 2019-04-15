@@ -19,6 +19,7 @@ namespace SisConsultaMVC.Models
         [Display(Name = "Data inicial da consulta")]
         public DateTime DataConsulta { get; set; }
 
+
         [Display(Name = "Data final da consulta")]
         public DateTime DataFinalConsulta { get; set; }
 
