@@ -58,7 +58,7 @@
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <label asp-for="DataConsulta" class="control-label"></label>
-                                <input asp-for="DataConsulta" class="form-control" placeholder="Ex: 30/07/2016 23:59" />
+                                <input type="text" asp-for="DataConsulta" class="form-control date_time" placeholder="Ex: 30/07/2016 23:59" />
                                 <span asp-validation-for="DataConsulta" class="text-danger"></span>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <label asp-for="DataFinalConsulta" class="control-label"></label>
-                                <input asp-for="DataFinalConsulta" class="form-control" placeholder="Ex: 30/07/2016 23:59" />
+                                <input type="text" asp-for="DataFinalConsulta" class="form-control date_time" placeholder="Ex: 30/07/2016 23:59" />
                                 <span asp-validation-for="DataFinalConsulta" class="text-danger"></span>
                             </div>
                         </div>

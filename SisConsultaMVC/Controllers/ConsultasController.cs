@@ -72,9 +72,17 @@ namespace SisConsultaMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_validation.ValidarConsultaMedico(consulta.MedicoID, consulta.DataConsulta)){
+                if(consulta.DataFinalConsulta < consulta.DataConsulta)
+                {
+                    ModelState.AddModelError("ProcessSubmitUpload", "A data final da consulta deve ser maior que a inicial.");
+                    ViewData["MedicoID"] = new SelectList(_context.Medicos, "MedicoID", "Nome");
+                    ViewData["PacienteID"] = new SelectList(_context.Pacientes, "PacienteID", "NomePaciente");
+                    return View();
 
-                    ModelState.AddModelError("ProcessSubmitUpload", "Já existe consulta agendada para este médico");
+                }
+                else if (_validation.ValidarConsultaMedico(consulta.MedicoID, consulta.DataConsulta)){
+
+                    ModelState.AddModelError("ProcessSubmitUpload", "Já existe consulta agendada para este médico.");
                     ViewData["MedicoID"] = new SelectList(_context.Medicos, "MedicoID", "Nome");
                     ViewData["PacienteID"] = new SelectList(_context.Pacientes, "PacienteID", "NomePaciente");
                     return View();
