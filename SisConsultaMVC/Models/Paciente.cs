@@ -20,6 +20,7 @@ namespace SisConsultaMVC.Models
         [Display(Name = "CPF")]
         public string Cpf { get; set; }
 
+        [Required(ErrorMessage = "{0} obrigatório")] // Campo obrigatório.
         [Display(Name = "Telefone")]
         public string NumTelefone { get; set; }
 
