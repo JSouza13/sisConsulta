@@ -14,9 +14,9 @@ namespace SisConsultaMVC.Migrations
                 {
                     MedicoID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(maxLength: 60, nullable: false),
-                    Email = table.Column<string>(nullable: false),
-                    Especialidade = table.Column<string>(maxLength: 60, nullable: false)
+                    Nome = table.Column<string>(maxLength: 200, nullable: false),
+                    Email = table.Column<string>(maxLength: 200, nullable: false),
+                    Especialidade = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,12 +31,12 @@ namespace SisConsultaMVC.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     NomePaciente = table.Column<string>(maxLength: 200, nullable: false),
                     Cpf = table.Column<string>(maxLength: 14, nullable: false),
-                    NumTelefone = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Rua = table.Column<string>(nullable: true),
-                    Numero = table.Column<int>(nullable: true),
-                    Bairro = table.Column<string>(nullable: true),
-                    Cidade = table.Column<string>(nullable: true)
+                    NumTelefone = table.Column<string>(maxLength: 14, nullable: false),
+                    Email = table.Column<string>(maxLength: 200, nullable: false),
+                    Rua = table.Column<string>(maxLength: 200, nullable: true),
+                    Numero = table.Column<int>(maxLength: 200, nullable: true),
+                    Bairro = table.Column<string>(maxLength: 200, nullable: true),
+                    Cidade = table.Column<string>(maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -51,8 +51,8 @@ namespace SisConsultaMVC.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     MedicoID = table.Column<int>(nullable: false),
                     PacienteID = table.Column<int>(nullable: false),
-                    DataConsulta = table.Column<DateTime>(nullable: false),
-                    DataFinalConsulta = table.Column<DateTime>(nullable: false)
+                    DataConsulta = table.Column<DateTime>(maxLength: 16, nullable: false),
+                    DataFinalConsulta = table.Column<DateTime>(maxLength: 16, nullable: false)
                 },
                 constraints: table =>
                 {

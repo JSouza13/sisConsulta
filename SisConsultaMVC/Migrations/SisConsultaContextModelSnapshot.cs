@@ -25,9 +25,11 @@ namespace SisConsultaMVC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DataConsulta");
+                    b.Property<DateTime>("DataConsulta")
+                        .HasMaxLength(16);
 
-                    b.Property<DateTime>("DataFinalConsulta");
+                    b.Property<DateTime>("DataFinalConsulta")
+                        .HasMaxLength(16);
 
                     b.Property<int>("MedicoID");
 
@@ -49,15 +51,16 @@ namespace SisConsultaMVC.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
-                        .IsRequired();
+                        .IsRequired()
+                        .HasMaxLength(200);
 
                     b.Property<string>("Especialidade")
                         .IsRequired()
-                        .HasMaxLength(60);
+                        .HasMaxLength(200);
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasMaxLength(60);
+                        .HasMaxLength(200);
 
                     b.HasKey("MedicoID");
 
@@ -70,25 +73,33 @@ namespace SisConsultaMVC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Bairro");
+                    b.Property<string>("Bairro")
+                        .HasMaxLength(200);
 
-                    b.Property<string>("Cidade");
+                    b.Property<string>("Cidade")
+                        .HasMaxLength(200);
 
                     b.Property<string>("Cpf")
                         .IsRequired()
                         .HasMaxLength(14);
 
-                    b.Property<string>("Email");
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(200);
 
                     b.Property<string>("NomePaciente")
                         .IsRequired()
                         .HasMaxLength(200);
 
-                    b.Property<string>("NumTelefone");
+                    b.Property<string>("NumTelefone")
+                        .IsRequired()
+                        .HasMaxLength(14);
 
-                    b.Property<int?>("Numero");
+                    b.Property<int?>("Numero")
+                        .HasMaxLength(200);
 
-                    b.Property<string>("Rua");
+                    b.Property<string>("Rua")
+                        .HasMaxLength(200);
 
                     b.HasKey("PacienteID");
 

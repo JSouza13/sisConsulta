@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System;
+using static SisConsultaMVC.Data.EntityConfig;
 
 namespace SisConsultaMVC.Data
 {
@@ -20,16 +21,9 @@ namespace SisConsultaMVC.Data
             modelBuilder.Entity<Paciente>().ToTable("Paciente");
             modelBuilder.Entity<Consulta>().ToTable("Consulta");
             modelBuilder.Entity<Medico>().ToTable("Medico");
+            modelBuilder.ApplyConfiguration(new PacienteMap());
+            modelBuilder.ApplyConfiguration(new MedicoMap());
+            modelBuilder.ApplyConfiguration(new ConsultaMap());
         }
-
-        //public override int SaveChanges()
-        //{
-        //    foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataFinalConsulta") != null))
-        //    {
-        //        if (entry.State == EntityState.Added)
-        //            entry.Property("DataFinalConsulta").CurrentValue = Convert.ToDateTime(entry.Property("DataConsulta").CurrentValue).AddHours(1);
-        //    }
-        //    return base.SaveChanges();
-        //}
     }
 }

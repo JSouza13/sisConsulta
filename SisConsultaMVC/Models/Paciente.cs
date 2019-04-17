@@ -26,11 +26,12 @@ namespace SisConsultaMVC.Models
 
         [Required(ErrorMessage = "{0} obrigatório")] // Campo obrigatório.
         [EmailAddress(ErrorMessage = "Insira um e-mail valido")]
+        [StringLength(200)]
         [Display(Name = "E-mail")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-
         public string Rua { get; set; }
+
         public int? Numero { get; set; }
         public string Bairro { get; set; }
         public string Cidade { get; set; }
